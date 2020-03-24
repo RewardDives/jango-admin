@@ -1,0 +1,14 @@
+@mixin font-face($name, $style, $weight, $fontname)
+  $path: '../fonts/'
+
+  @font-face
+    font-family: $name
+    font-style: $style
+    font-weight: $weight
+    font-display: auto
+    src: url(''+ $path + $fontname + '.woff2') format('woff2'), url(''+ $path + $fontname + '.woff') format('woff')
+
+@include font-face('Roboto', normal, 400, 'roboto-regular-webfont')
+@include font-face('Roboto', italic, 400, 'roboto-italic-webfont')
+@include font-face('Roboto', normal, 700, 'roboto-bold-webfont')
+@include font-face('Roboto', italic, 700, 'roboto-bolditalic-webfont')

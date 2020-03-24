@@ -1,0 +1,55 @@
+@import normolize
+@import fonts
+@import swiper
+@import modal
+
+html, body
+  height: 100%
+
+body
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
+  min-height: 100%
+
+.container
+  width: 100%
+  position: relative
+  padding-left: 15px
+  padding-right: 15px
+  box-sizing: border-box
+  overflow-y: scroll
+  min-height: 100%
+
+.main
+  display: flex
+  flex-wrap: wrap
+  height: 100%
+
+.aside
+  --asideWidth: 280px
+  width: var(--asideWidth)
+  height: 100%
+  background-color: #1f1f1f
+
+.section
+  height: 100%
+  max-width: calc(100% - var(--asideWidth))
+  overflow: hidden
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  padding-top: 80px
+
+.header
+  height: 60px
+  width: 100%
+  background-color: #fff
+  box-shadow: 0 1px 12px rgba(0,0,0,.1)
+  position: fixed
+  top: 0
+  z-index: 100
+  @include performance
+  display: flex
+  align-items: center
+
+@import media

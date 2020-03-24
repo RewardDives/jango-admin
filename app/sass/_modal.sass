@@ -1,0 +1,138 @@
+.modal__overlay
+  position: fixed
+  z-index: 300
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: rgba(0, 0, 0, 0.6)
+  display: flex
+  justify-content: center
+  align-items: center
+  @include performance
+
+.modal__container
+  background-color: #fff
+  max-width: 500px
+  min-width: 300px
+  max-height: 90vh
+  width: auto
+  overflow-y: auto
+  box-sizing: border-box
+  border-radius: 4px
+  padding: 20px
+
+.modal__header
+  display: flex
+  align-items: center
+  width: 100%
+
+  .modal__title
+    font-size: 16px
+
+  .modal__close
+    width: 18px
+    height: 18px
+    padding: 0
+    margin: 0
+    border: 0
+    background: none
+    outline: none
+    margin-left: auto
+    justify-content: flex-end
+
+    &:hover
+      &:before
+        color: #000
+
+    &:before
+      content: "\2715"
+      color: rgba(0, 0, 0, 0.2)
+      cursor: pointer
+      font-size: 150%
+      line-height: 80%
+      transition: .3s
+
+.modal__content
+  padding-top: 20px
+  padding-bottom: 20px
+
+#modal-thanks
+  text-align: center
+
+  .modal__header
+    padding-bottom: 0
+
+  .modal-thanks__icon
+    fill: #28a745
+    height: 100px
+
+  .modal-thanks__title
+    font-size: 22px
+    font-weight: 700
+    margin-top: 15px
+
+  .modal-thanks__text
+    margin-bottom: 30px
+    font-size: 14px
+    font-weight: 400
+    color: #777
+
+  .btn
+    padding-left: 30px
+    padding-right: 30px
+    text-transform: uppercase
+
+@media (max-width: 560px)
+  .modal__container
+    max-width: calc(100% - 30px)
+
+@keyframes mmfadeIn
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+@keyframes mmfadeOut
+  from
+    opacity: 1
+
+  to
+    opacity: 0
+
+@keyframes mmslideIn
+  from
+    transform: translateY(15%)
+
+  to
+    transform: translateY(0)
+
+@keyframes mmslideOut
+  from
+    transform: translateY(0)
+
+  to
+    transform: translateY(-10%)
+
+.micromodal-slide
+  display: none
+
+.micromodal-slide.is-open
+  display: block
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay
+  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1)
+
+.micromodal-slide[aria-hidden="false"] .modal__container
+  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1)
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay
+  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1)
+
+.micromodal-slide[aria-hidden="true"] .modal__container
+  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1)
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay
+  will-change: transform
